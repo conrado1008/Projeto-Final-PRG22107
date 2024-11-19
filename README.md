@@ -8,7 +8,7 @@
 
 > Repositório destinado para o desenvolvimento do projeto final da discipliana PRG22107 - Programação orienta a objeto. 
 > 
-> Aluno: Conrado Becker Gressler, Joana Paula Abreu Wasserberg  
+> Aluno: Eduardo Pereira, Conrado Becker Gressler, Joana Paula Abreu Wasserberg  
 > Professor: Hugo Marcondes
 
 <p align=center><strong>SUMÁRIO</strong></p>
