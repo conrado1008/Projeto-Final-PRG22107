@@ -10,11 +10,11 @@ Descrever de forma geral o domínio do problema.
 Possíveis requisitos funcionais e não-funcionais podem ser elencados aqui.
 
 ## Diagrama de Casos de Uso
-<center>
-<img src="img/diagramacasodeuso.png"
+<div align ="center">
+<img src="img/DiagramaCasoDeUso.png"
      width="90%"
      style="padding: 10px">
-</center>
+</div>
 
 
  Jogar -> O jogador vai para a tela de jogar e o programa inicia a contagem de movimentos.
