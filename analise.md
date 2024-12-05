@@ -10,9 +10,23 @@ Descrever de forma geral o domínio do problema.
 Possíveis requisitos funcionais e não-funcionais podem ser elencados aqui.
 
 ## Diagrama de Casos de Uso
+<center>
+<img src="img/diagramacasodeuso.png"
+     width="90%"
+     style="padding: 10px">
+</center>
 
-Apresentar o diagram de casos de uso, identificando as funcionalidades do sistema assim como os atores envolvidos
- 
+
+ Jogar -> O jogador vai para a tela de jogar e o programa inicia a contagem de movimentos.
+
+  Selecionar o level -> o jogador pode selecionar um dos **boards** dos níveis(1 a 10)
+
+ Reiniciar a partida-> As peças voltam para a posição inicial e a contagem zera. 
+
+ Voltar -> Volta para o menu inicial.
+
+ Sair -> Fecha o jogo.
+
 ## Diagrama de Domínio do problema
 
 Elaborar um diagrama conceitual do domínio do problema.
