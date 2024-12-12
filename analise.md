@@ -27,7 +27,7 @@ O jogo pentaminó ........
 
 ## Diagrama de Domínio do problema
 <div align ="center">
-<img src="img/Class_diagram.png"
+<img src="img/class_diagram.png"
      width="70%"
      style="padding: 10px">
 </div>
