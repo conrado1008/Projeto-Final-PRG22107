@@ -5,14 +5,12 @@
 
 ## Descrição Geral do domínio do problema
 
-Descrever de forma geral o domínio do problema.
-
-Possíveis requisitos funcionais e não-funcionais podem ser elencados aqui.
+O jogo pentaminó ........
 
 ## Diagrama de Casos de Uso
 <div align ="center">
 <img src="img/DiagramaCasoDeUso.png"
-     width="90%"
+     width="60%"
      style="padding: 10px">
 </div>
 
@@ -28,8 +26,52 @@ Possíveis requisitos funcionais e não-funcionais podem ser elencados aqui.
  Sair -> Fecha o jogo.
 
 ## Diagrama de Domínio do problema
+<div align ="center">
+<img src="img/Class_diagram.png"
+     width="70%"
+     style="padding: 10px">
+</div>
 
-Elaborar um diagrama conceitual do domínio do problema.
+### Game
+* List of Levels: o atributo contém o número de *levels* totais do jogo.
+* Player: O atributo contem a sub-classe *Player*.
+* Select Level: O método é usado para selecionar o *Level* que vai ser jogado pelo jogador.
+* Init Game: Método para iniciar o jogo.
+* Quit: Método usado para fechar o jogo.
+
+### Player
+
+* Name: Atributo que contem o nome do jogador
+
+### Level
+
+* List Of Shapes: Atributo que vai conter as peças.
+* Level ID: Atributo responsável pela identificação do *level*.
+* Level Format: atributo que contem a sub-classe *Level_format*.
+* Is Completed: atributo  para ver se o *level* foi Concluído.
+* Moves Value: Número de movimentos feito pelo jogador.
+* Return menu: Retorna para o menu do jogo 
+* Check Completion: Verifica se o *Level* foi concluído
+* Next Level: Passa para o próximo *level*
+* Restart: Reinicia o *level*
+ ### Shape
+
+* Number of Squares: Atributo com o tamanho da peça em quadrados.
+* Move: Método usado para movimentar a peça.
+  
+ ### Level Format
+
+* Total Size: Atributo que contem o tamanho do *board* em quadrados
+* Blank spaces: Número de quaadrados que ainda não foram preenchidos.
+
+## Layout da tela 
+
+<div align ="center">
+<img src="img/Telas.png"
+     width="70%"
+     style="padding: 10px">
+</div>
+
 
 
 <div align="center">
