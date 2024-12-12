@@ -5,7 +5,7 @@
 
 ## Descrição Geral do domínio do problema
 
-O jogo pentaminó ........
+A descrição geral do domínio do problema do jogo Pentaminó envolve a implementação de um sistema baseado em objetos para representar as entidades principais do jogo, como o Game, Player, Level, Shape, e Level Format. O jogo é dividido em níveis (levels), cada um com um conjunto de peças (shapes) que o jogador deve posicionar corretamente. O domínio abrange funcionalidades como iniciar, reiniciar, e sair do jogo, selecionar níveis, e verificar a conclusão dos desafios.
 
 ## Diagrama de Casos de Uso
 <div align ="center">
