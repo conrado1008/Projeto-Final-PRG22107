@@ -6,7 +6,7 @@
 
 ## << Descrição breve do domínio do problema >>
 
-O Pentaminó é um jogo de tabuleiro no qual o objetivo é preencher completamente o espaço disponível com peças geométricas chamadas pentaminós. Cada peça é formada por cinco quadrados conectados de maneiras distintas. O desafio consiste em posicionar as peças nos diversos tabuleiros sem sobreposições e sem deixar espaços vazios.
+O Pentaminó é um jogo de tabuleiro no qual o objetivo é preencher completamente o espaço disponível com peças geométricas chamadas pentaminós. Cada peça é formada por cinco quadrados conectados de diferentes formas, formando peças distintas. O desafio consiste em posicionar as peças nos diversos tabuleiros sem sobreposições e sem deixar espaços vazios, e a dificuldade aumenta à medida que o nível é concluído.
 
 > Repositório destinado para o desenvolvimento do projeto final da discipliana PRG22107 - Programação orienta a objeto. 
 > 
