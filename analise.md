@@ -1,11 +1,21 @@
 # Análise orientada a objeto
-> [!NOTE]
-> <p>A <strong>análise</strong> orientada a objeto consiste na descrição do problema a ser tratado, duas primeiras etapas da tabela abaixo, a definição de casos de uso e a definição do domínio do problema.</p>
-
 
 ## Descrição Geral do domínio do problema
 
-A descrição geral do domínio do problema do jogo Pentaminó envolve a implementação de um sistema baseado em objetos para representar as entidades principais do jogo, como o Game, Player, Level, Shape, e Level Format. O jogo é dividido em níveis (levels), cada um com um conjunto de peças (shapes) que o jogador deve posicionar corretamente. O domínio abrange funcionalidades como iniciar, reiniciar, e sair do jogo, selecionar níveis, e verificar a conclusão dos desafios.
+O jogo Pentaminó envolve a implementação de um sistema baseado em objetos para representar as entidades principais do jogo, como o Game, Player, Level, Shape, e Level Format. O jogo é dividido em níveis (levels), cada um com um conjunto de peças (shapes) que o jogador deve posicionar corretamente. O domínio abrange funcionalidades como iniciar, reiniciar, e sair do jogo, selecionar níveis, e verificar a conclusão dos desafios.
+
+### O jogo proposto:
+
+* Tabuleiro é uma grade 10 (Largura) x 6 (Altura).
+* 12 Pentaminós.
+* 10 níveis predefinidos.
+* O jogador pode movimentar as peças com o auxilio do mouse.
+* O jogador pode escolher entre jogar desde o nível 1 ou jogar um nível específico.
+* O jogador pode reiniciar o nível a qualquer momento clicando em um botão.
+* O jogador Pode voltar ao menu inicial a qualquer momento.
+* Haverá uma contagem de movimentos feitos pelo jogador.
+
+
 
 ## Diagrama de Casos de Uso
 <div align ="center">
@@ -17,7 +27,7 @@ A descrição geral do domínio do problema do jogo Pentaminó envolve a impleme
 
  Jogar -> O jogador vai para a tela de jogar e o programa inicia a contagem de movimentos.
 
-  Selecionar o level -> o jogador pode selecionar um dos **boards** dos níveis(1 a 10)
+  Selecionar o level -> o jogador pode selecionar um dos **boards** dos níveis(1 a 10).
 
  Reiniciar a partida-> As peças voltam para a posição inicial e a contagem zera. 
 
