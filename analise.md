@@ -72,7 +72,7 @@ O jogo Pentaminó envolve a implementação de um sistema baseado em objetos par
  ### Level Format
 
 * Total Size: Atributo que contem o tamanho do *board* em quadrados
-* Blank spaces: Número de quaadrados que ainda não foram preenchidos.
+* Blank spaces: Número de quadrados que ainda não foram preenchidos.
 
 ## Layout da tela 
 
