@@ -24,10 +24,7 @@ O jogo Pentaminó envolve a implementação de um sistema baseado em objetos par
      style="padding: 10px">
 </div>
 
-Arrumar:
-jogar vira init partida 
-tirar o jogar do include e colocar no init partida 
-add movimentar peça 
+
 
  Jogar -> O jogador vai para a tela de jogar e o programa inicia a contagem de movimentos.
 
@@ -46,9 +43,6 @@ add movimentar peça
      style="padding: 10px">
 </div>
 
-Arrumar o diagrama : Level format não existe jogar os atributos na classe level
-Mudaro sentido do losango
-
 ### Game
 * List of Levels: o atributo contém o número de *levels* totais do jogo.
 * Player: O atributo contem a sub-classe *Player*.
@@ -64,9 +58,10 @@ Mudaro sentido do losango
 
 * List Of Shapes: Atributo que vai conter as peças.
 * Level ID: Atributo responsável pela identificação do *level*.
-* Level Format: atributo que contem a sub-classe *Level_format*.
 * Is Completed: atributo  para ver se o *level* foi Concluído.
 * Moves Value: Número de movimentos feito pelo jogador.
+* Total Size: Atributo que contem o tamanho do *board* em quadrados
+* Blank spaces: Número de quadrados que ainda não foram preenchidos.
 * Return menu: Retorna para o menu do jogo 
 * Check Completion: Verifica se o *Level* foi concluído
 * Next Level: Passa para o próximo *level*
@@ -76,11 +71,6 @@ Mudaro sentido do losango
 * Number of Squares: Atributo com o tamanho da peça em quadrados.
 * Move: Método usado para movimentar a peça.
   
- ### Level Format
-
-* Total Size: Atributo que contem o tamanho do *board* em quadrados
-* Blank spaces: Número de quadrados que ainda não foram preenchidos.
-
 ## Layout da tela 
 
 <div align ="center">
