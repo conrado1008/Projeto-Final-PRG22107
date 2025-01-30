@@ -10,10 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    peca.cpp \
+    tipodepecas.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    peca.h \
+    tipodepecas.h
 
 FORMS +=
 

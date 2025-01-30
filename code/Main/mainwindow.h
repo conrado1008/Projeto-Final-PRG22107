@@ -1,27 +1,23 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtWidgets>
+#include <QMainWindow>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <vector>
+#include "peca.h"
+#include "tipodepecas.h"
 
-class MainWindow : public QWidget
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
-public slots:
-    void start_game();
-    void level_selection();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();  // ⬅️ Apenas declaração, sem implementação!
 
 private:
-    QPushButton * start;
-    QPushButton * select_level;
-    QPushButton * exit;
-    QVBoxLayout * mainLayout;
-
+    QGraphicsView *view;
+    QGraphicsScene *scene;
 };
-
 
 #endif // MAINWINDOW_H

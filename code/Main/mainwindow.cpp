@@ -1,82 +1,40 @@
 #include "mainwindow.h"
-#include "QMessageBox"
-#include <QtWidgets>
+#include "tipodepecas.h"
+#include "peca.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QWidget(parent)
+    : QMainWindow(parent), view(new QGraphicsView(this)), scene(new QGraphicsScene(this))
 {
-    setWindowTitle("Quebra-cabeça pentaminó");
+    const int larguraTabuleiro = 10 * 50;
+    const int alturaTabuleiro = 6 * 50;
+    scene->setSceneRect(0, 0, larguraTabuleiro, alturaTabuleiro);
+    view->setScene(scene);
 
-//---------- Widgets ----------//
+    // Criar e adicionar uma peca
+    Peca *pecaE = FabricaDePecas::criarPeca(PECA_E);
+    Peca *pecaT = FabricaDePecas::criarPeca(PECA_T);
+    Peca *pecaI = FabricaDePecas::criarPeca(PECA_I);
+    Peca *pecaL = FabricaDePecas::criarPeca(PECA_L);
+    Peca *pecaO = FabricaDePecas::criarPeca(PECA_O);
 
-    start = new QPushButton("Iniciar");
-    start->setFixedSize(100,60);
-    QObject::connect(start, SIGNAL(clicked()), this, SLOT(start_game()));
+    pecaE->setPos(0, 0);
+    pecaT->setPos(100, 0);
+    pecaI->setPos(250, 0);
+    pecaL->setPos(300, 0);
+    pecaO->setPos(350, 0);
 
-    select_level = new QPushButton("Selecionar nível");
-    QObject::connect(select_level, SIGNAL(clicked()), this, SLOT(level_selection()));
-    select_level->setFixedSize(100,60);
+    scene->addItem(pecaE);
+    scene->addItem(pecaT);
+    scene->addItem(pecaI);
+    scene->addItem(pecaL);
+    scene->addItem(pecaO);
 
-    exit = new QPushButton("Sair");
-    QObject::connect(exit, SIGNAL(clicked()), qApp, SLOT(quit()));
-    exit->setFixedSize(100,60);
-
-//---------- Layout ----------//
-
-    mainLayout = new QVBoxLayout();
-
-    QHBoxLayout *hLayout = new QHBoxLayout();
-    hLayout->addStretch();
-    hLayout->addWidget(start);
-    hLayout->addStretch();
-
-    mainLayout->addStretch();
-    mainLayout->addLayout(hLayout);
-
-    QHBoxLayout *hLayout2 = new QHBoxLayout();
-    hLayout2->addStretch();
-    hLayout2->addWidget(select_level);
-    hLayout2->addStretch();
-
-    QHBoxLayout *hLayout3 = new QHBoxLayout();
-    hLayout3->addStretch();
-    hLayout3->addWidget(exit);
-    hLayout3->addStretch();
-
-    mainLayout->addLayout(hLayout2);
-    mainLayout->addLayout(hLayout3);
-
-    mainLayout->addStretch();
-
-    setLayout(mainLayout);
-
-    resize(400,400);
+    setCentralWidget(view);
+    resize(larguraTabuleiro, alturaTabuleiro);
 }
 
-MainWindow::~MainWindow() {}
-
-
-//----Mock-up de game start----//
-
-void MainWindow::start_game(){
-    // Create a message box
-    QMessageBox msgBox;
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setWindowTitle("Game started");
-    msgBox.setText("Game's on!");
-    msgBox.setStandardButtons(QMessageBox::Ok); // Show OK button
-    msgBox.exec(); // Show the message box
-}
-
-
-//----Mock-up de level select----//
-
-void MainWindow::level_selection(){
-    // Create a message box
-    QMessageBox msgBox;
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setWindowTitle("Level select");
-    msgBox.setText("Level selection screen");
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.exec();
+// Destrutor
+MainWindow::~MainWindow() {
+    delete view;
+    delete scene;
 }
