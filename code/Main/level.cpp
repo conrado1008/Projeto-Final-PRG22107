@@ -1,17 +1,43 @@
 #include "level.h"
 #include <QGraphicsRectItem>
 #include <QVBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QString>
 
 Level::Level(QWidget *parent)
-    : QWidget(parent), scene(new QGraphicsScene(this)), view(new QGraphicsView(scene, this)) {
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    setLayout(layout);
+    : QWidget(parent)
+{
+    scene = new QGraphicsScene(this);
+    view = new QGraphicsView(scene, this);
 
-    view->setFixedSize(620, 380); // Ajusta o tamanho da visão
-    layout->addWidget(view);
+    // Rótulos de level_id e moves_value
+    levelLabel = new QLabel("Level ID: " + QString::number(level_id), this);
+    movesLabel = new QLabel("Moves: " + QString::number(moves_value), this);
 
+    // Botão de fechar
+    closeButton = new QPushButton("Close", this);
+    QObject::connect(closeButton, SIGNAL(clicked()), qApp, SLOT(quit()));
+
+    // Layout principal
+    mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(levelLabel);
+    mainLayout->addWidget(movesLabel);
+    mainLayout->addWidget(view);
+
+    // Layout para o botão de fechar
+    hBottomLayout = new QHBoxLayout();
+    hBottomLayout->addWidget(closeButton);
+
+    mainLayout->addLayout(hBottomLayout);
+
+    setLayout(mainLayout);
+
+    view->setFixedSize(620, 380);
     setupBoard();
 }
+
+Level::~Level() {}
 
 void Level::setupBoard() {
     // Limpa a cena e o grid existente
@@ -29,11 +55,15 @@ void Level::setupBoard() {
     }
 }
 
-void Level::restart() {
-    // Reseta as cores do tabuleiro para o estado inicial
-    for (auto& row : grid) {
-        for (auto& square : row) {
-            square->setBrush(Qt::lightGray);
-        }
-    }
+void Level::updateLevelInfo() {
+    // Atualiza os rótulos de level_id e moves_value
+    levelLabel->setText("Level ID: " + QString::number(level_id));
+    movesLabel->setText("Moves: " + QString::number(moves_value));
+}
+
+void Level::mouseReleaseEvent(QMouseEvent *event) {
+    // Aumenta o valor de moves_value quando o mouse for solto
+    moves_value++;
+    updateLevelInfo(); // Atualiza as informações no GUI
+    QWidget::mouseReleaseEvent(event); // Chama o método base
 }

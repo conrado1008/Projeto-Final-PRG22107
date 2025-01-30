@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     level.cpp \
-    main.cpp
+    main.cpp \
+    retangulo.cpp
 
 HEADERS += \
-    level.h
+    level.h \
+    retangulo.h
 
 FORMS +=
 
