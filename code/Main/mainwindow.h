@@ -11,6 +11,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void start_game();
+    void level_selection();
+
 private:
     QPushButton * start;
     QPushButton * select_level;
