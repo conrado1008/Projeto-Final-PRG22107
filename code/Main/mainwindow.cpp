@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "game_screen.h"
 #include "QMessageBox"
 #include <QtWidgets>
 
@@ -58,15 +59,21 @@ MainWindow::~MainWindow() {}
 
 //----Mock-up de game start----//
 
-void MainWindow::start_game(){
-    // Create a message box
-    QMessageBox msgBox;
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setWindowTitle("Game started");
-    msgBox.setText("Game's on!");
-    msgBox.setStandardButtons(QMessageBox::Ok); // Show OK button
-    msgBox.exec(); // Show the message box
+void MainWindow::start_game() {
+    // Hide the MainWindow
+    this->hide();
+
+    // Create the GameScreen window
+    game_screen *gameScreen = new game_screen();
+
+    // Show the GameScreen window
+    gameScreen->setWindowTitle("Game Screen");
+    gameScreen->show();
+
+    // Connect GameScreen's close event to re-show the MainWindow
+    connect(gameScreen, &game_screen::destroyed, this, &MainWindow::show);
 }
+
 
 
 //----Mock-up de level select----//

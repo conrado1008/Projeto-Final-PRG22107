@@ -164,6 +164,7 @@ Makefile: ../Main/Projeto_final_prg.pro C:/tools/msys64/mingw64/share/qt5/mkspec
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/qt_config.prf \
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/win32-g++/qmake.conf \
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/exclusive_builds.prf \
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/toolchain.prf \
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/default_pre.prf \
@@ -189,7 +190,6 @@ Makefile: ../Main/Projeto_final_prg.pro C:/tools/msys64/mingw64/share/qt5/mkspec
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/lex.prf \
 		../Main/Projeto_final_prg.pro \
 		C:/tools/msys64/mingw64/lib/qtmain.prl \
-		.qmake.stash \
 		C:/tools/msys64/mingw64/share/qt5/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\Main\Projeto_final_prg.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/spec_pre.prf:
@@ -286,6 +286,7 @@ C:/tools/msys64/mingw64/share/qt5/mkspecs/features/qt_functions.prf:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/qt_config.prf:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/win32-g++/qmake.conf:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/exclusive_builds.prf:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/toolchain.prf:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/default_pre.prf:
@@ -311,7 +312,6 @@ C:/tools/msys64/mingw64/share/qt5/mkspecs/features/yacc.prf:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/lex.prf:
 ../Main/Projeto_final_prg.pro:
 C:/tools/msys64/mingw64/lib/qtmain.prl:
-.qmake.stash:
 C:/tools/msys64/mingw64/share/qt5/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Main\Projeto_final_prg.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
