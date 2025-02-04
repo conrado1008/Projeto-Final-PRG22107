@@ -4,6 +4,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QString>
+#include <QApplication>
 
 Level::Level(QWidget *parent)
     : QWidget(parent)
@@ -11,23 +12,9 @@ Level::Level(QWidget *parent)
     scene = new QGraphicsScene(this);
     view = new QGraphicsView(scene, this);
 
-    // Rótulos de level_id e moves_value
-    levelLabel = new QLabel("Level ID: " + QString::number(level_id), this);
-    movesLabel = new QLabel("Moves: " + QString::number(moves_value), this);
-
-    // Botão de fechar
-    closeButton = new QPushButton("Close", this);
-    QObject::connect(closeButton, SIGNAL(clicked()), qApp, SLOT(quit()));
-
     // Layout principal
     mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(levelLabel);
-    mainLayout->addWidget(movesLabel);
     mainLayout->addWidget(view);
-
-    // Layout para o botão de fechar
-    hBottomLayout = new QHBoxLayout();
-    hBottomLayout->addWidget(closeButton);
 
     mainLayout->addLayout(hBottomLayout);
 
@@ -54,17 +41,4 @@ void Level::setupBoard() {
         }
         grid.append(rowItems);
     }
-}
-
-void Level::updateLevelInfo() {
-    // Atualiza os rótulos de level_id e moves_value
-    levelLabel->setText("Level ID: " + QString::number(level_id));
-    movesLabel->setText("Moves: " + QString::number(moves_value));
-}
-
-void Level::mouseReleaseEvent(QMouseEvent *event) {
-    // Aumenta o valor de moves_value quando o mouse for solto
-    moves_value++;
-    updateLevelInfo(); // Atualiza as informações no GUI
-    QWidget::mouseReleaseEvent(event); // Chama o método base
 }

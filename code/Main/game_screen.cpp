@@ -1,4 +1,5 @@
 #include "game_screen.h"
+#include "level.h"
 #include "QMessageBox"
 #include <QtWidgets>
 
@@ -6,6 +7,8 @@
 game_screen::game_screen(QWidget *parent) : QWidget(parent)
 {
     setWindowTitle("Quebra-cabeça pentaminó");
+
+    Level *newLevelWidget = new Level(this);
 
     // Top row
     moveCounterLabel = new QLabel("Contagem de movimentos");
@@ -34,10 +37,9 @@ game_screen::game_screen(QWidget *parent) : QWidget(parent)
     mainLayout->addWidget(block3, 1, 3);
     mainLayout->addWidget(block4, 2, 3);
 
-    // Center area (placeholder)
-    QLabel *centerArea = new QLabel;
-    centerArea->setStyleSheet("border: 1px solid black;");
-    mainLayout->addWidget(centerArea, 1, 1, 2, 2);
+
+    // Add the new Level widget in the same layout position
+    mainLayout->addWidget(newLevelWidget, 1, 1, 2, 2);
 
     // Connect signals
     connect(restartButton, &QPushButton::clicked, this, &game_screen::onRestartClicked);
