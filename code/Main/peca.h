@@ -4,6 +4,8 @@
 #include <QGraphicsItem>
 #include <vector>
 #include <QColor>
+#include <QPainter>
+#include <QStyleOptionGraphicsItem>
 
 enum TipoPeca {
     PECA_E,
@@ -20,9 +22,12 @@ public:
     QRectF boundingRect() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
+
 private:
     std::vector<std::vector<bool>> mapaBlocos;
     QColor corPeca;
 };
+
+
 
 #endif // PECA_H

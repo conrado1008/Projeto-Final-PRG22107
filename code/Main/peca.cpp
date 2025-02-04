@@ -10,6 +10,7 @@ QRectF Peca::boundingRect() const {
 
 void Peca::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) {
     painter->setBrush(corPeca);
+    this->setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable);
 
     for (size_t i = 0; i < mapaBlocos.size(); ++i) {
         for (size_t j = 0; j < mapaBlocos[i].size(); ++j) {
