@@ -1,12 +1,12 @@
-#include "mainwindow.h"
-
+#include "level.h"
 #include <QApplication>
-#include <QtWidgets>
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
+
+    Level level;
+    //level.setWindowTitle("Tabuleiro 10x6");
+    level.show();
+
+    return app.exec();
 }

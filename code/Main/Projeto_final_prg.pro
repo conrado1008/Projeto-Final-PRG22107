@@ -9,13 +9,22 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+<<<<<<< HEAD
     game_screen.cpp \
+=======
+    level.cpp \
+>>>>>>> origin/Eduardo
     main.cpp \
-    mainwindow.cpp
+    retangulo.cpp
 
 HEADERS += \
+<<<<<<< HEAD
     game_screen.h \
     mainwindow.h
+=======
+    level.h \
+    retangulo.h
+>>>>>>> origin/Eduardo
 
 FORMS +=
 
