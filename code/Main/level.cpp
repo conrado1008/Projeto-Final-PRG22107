@@ -32,6 +32,7 @@ Level::Level(QWidget *parent)
     mainLayout->addLayout(hBottomLayout);
 
     setLayout(mainLayout);
+    setWindowTitle("Tabuleiro 10x6");
 
     view->setFixedSize(620, 380);
     setupBoard();
