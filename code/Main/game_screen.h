@@ -2,13 +2,10 @@
 #define GAME_SCREEN_H
 
 #include <QWidget>
-#include <QPushButton>
-#include <QLabel>
-#include <QGridLayout>
-#include <QVBoxLayout>
-#include "QMessageBox"
-#include <QtWidgets>
-
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsTextItem>
+#include <QGraphicsRectItem>
 
 class game_screen : public QWidget
 {
@@ -19,17 +16,10 @@ public:
 
 private slots:
     void onRestartClicked();
-    void onBackToMenuClicked();
 
 private:
-    QLabel *moveCounterLabel;
-    QLabel *levelLabel;
-    QPushButton *restartButton;
-    QPushButton *backToMenuButton;
-    QPushButton *block1;
-    QPushButton *block2;
-    QPushButton *block3;
-    QPushButton *block4;
+    QGraphicsView *view;  // Para exibir a cena do jogo
+    QGraphicsScene *scene;  // Cena para todos os itens gráficos
 };
 
 #endif // GAME_SCREEN_H

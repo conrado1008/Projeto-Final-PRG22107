@@ -1,37 +1,24 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include <QWidget>
 #include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QGraphicsRectItem>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QPushButton>
-#include <QMouseEvent> // Para capturar eventos do mouse
+#include <QVector>
 
-class Level : public QWidget {
+class Level : public QGraphicsScene
+{
     Q_OBJECT
 
 public:
-    explicit Level(QWidget *parent = nullptr);
+    explicit Level(QObject *parent = nullptr);
     ~Level();
 
-private:
-    int width = 10;  // Largura do tabuleiro
-    int height = 6;  // Altura do tabuleiro
-    bool is_completed = false;
-    uint total_size = width * height;
-    uint blank_spaces = width * height;
-
-    QGraphicsScene *scene;
-    QGraphicsView *view;
-    QVector<QVector<QGraphicsRectItem*>> grid;
-
-    QVBoxLayout *mainLayout;
-    QHBoxLayout *hBottomLayout;
-
     void setupBoard();
+
+private:
+    int width = 10;   // Largura do tabuleiro
+    int height = 6;   // Altura do tabuleiro
+    QVector<QVector<QGraphicsRectItem*>> grid; // Matriz de quadrados
 };
 
 #endif // LEVEL_H

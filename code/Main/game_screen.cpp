@@ -1,65 +1,73 @@
 #include "game_screen.h"
 #include "level.h"
 #include "QMessageBox"
+#include "tipodepecas.h"
+#include "peca.h"
 #include <QtWidgets>
-
 
 game_screen::game_screen(QWidget *parent) : QWidget(parent)
 {
     setWindowTitle("Quebra-cabeça pentaminó");
 
-    Level *newLevelWidget = new Level(this);
+    // Criar a cena gráfica
+    scene = new QGraphicsScene(this);
+    scene->setSceneRect(0, 0, 600, 400); // Definir o tamanho da cena
 
-    // Top row
-    moveCounterLabel = new QLabel("Contagem de movimentos");
-    levelLabel = new QLabel("Nível X");
-        restartButton = new QPushButton("Restart");
-    backToMenuButton = new QPushButton("Voltar para o menu");
+    // Criar a peça e adicioná-la à cena
+    Peca *pecaE = FabricaDePecas::criarPeca(PECA_E);
+    scene->addItem(pecaE);
+    pecaE->setPos(100, 150); // Posicionar a peça
 
-    // Blocks
-    block1 = new QPushButton("peça 1");
-    block2 = new QPushButton("peça 2");
-    block3 = new QPushButton("peça 3");
-    block4 = new QPushButton("peça 4");
+    // Definir um valor Z alto para garantir que a peça fique à frente
+    pecaE->setZValue(1);  // Coloca a peça na frente de outros itens
 
-    // Layouts
-    QGridLayout *mainLayout = new QGridLayout(this);
+    // Criar elementos gráficos (labels)
+    QGraphicsTextItem *moveCounterLabel = scene->addText("Contagem de movimentos");
+    moveCounterLabel->setPos(10, 10);
 
-    // Top row
-    mainLayout->addWidget(moveCounterLabel, 0, 0);
-    mainLayout->addWidget(levelLabel, 0, 1);
-    mainLayout->addWidget(restartButton, 0, 2);
-    mainLayout->addWidget(backToMenuButton, 0, 3);
+    QGraphicsTextItem *levelLabel = scene->addText("Nível X");
+    levelLabel->setPos(200, 10);
 
-    // Blocks
-    mainLayout->addWidget(block1, 1, 0);
-    mainLayout->addWidget(block2, 2, 0);
-    mainLayout->addWidget(block3, 1, 3);
-    mainLayout->addWidget(block4, 2, 3);
+    // Criar botões gráficos
+    QGraphicsRectItem *restartButton = new QGraphicsRectItem(400, 10, 80, 30);
+    restartButton->setBrush(Qt::gray);
+    scene->addItem(restartButton);
 
+    QGraphicsTextItem *restartText = scene->addText("Restart");
+    restartText->setPos(415, 15);
 
-    // Add the new Level widget in the same layout position
-    mainLayout->addWidget(newLevelWidget, 1, 1, 2, 2);
+    QGraphicsRectItem *backToMenuButton = new QGraphicsRectItem(500, 10, 80, 30);
+    backToMenuButton->setBrush(Qt::gray);
+    scene->addItem(backToMenuButton);
 
-    // Connect signals
-    connect(restartButton, &QPushButton::clicked, this, &game_screen::onRestartClicked);
-    connect(backToMenuButton, &QPushButton::clicked, this, &game_screen::onBackToMenuClicked);
+    QGraphicsTextItem *backText = scene->addText("Voltar");
+    backText->setPos(515, 15);
 
-    resize(600,400);
+    // Criar a QGraphicsView para exibir a cena
+    view = new QGraphicsView(scene);
+    view->setFixedSize(600, 400);
+    view->setRenderHint(QPainter::Antialiasing);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // Criar layout principal
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(view);
+
+    // Criar o nível e adicionar ao layout
+    Level *levelScene = new Level(this);
+    QGraphicsView *levelView = new QGraphicsView(levelScene);
+    mainLayout->addWidget(levelView);
+
+    resize(600, 400);
 }
 
 void game_screen::onRestartClicked()
 {
-    // Create a message box
     QMessageBox msgBox;
     msgBox.setIcon(QMessageBox::Information);
     msgBox.setWindowTitle("Game restart");
     msgBox.setText("Game restarted");
     msgBox.setStandardButtons(QMessageBox::Ok);
     msgBox.exec();
-}
-
-void game_screen::onBackToMenuClicked()
-{
-    this->close();
 }

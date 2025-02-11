@@ -13,13 +13,17 @@ SOURCES += \
     level.cpp \
     main.cpp \
     mainwindow.cpp \
-    retangulo.cpp
+    retangulo.cpp \
+    peca.cpp \
+    tipodepecas.cpp
 
 HEADERS += \
     game_screen.h \
     mainwindow.h \
     level.h \
-    retangulo.h
+    retangulo.h  \
+    peca.h \
+    tipodepecas.h
 
 FORMS +=
 
