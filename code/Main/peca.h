@@ -22,6 +22,8 @@ public:
     QRectF boundingRect() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
+protected:
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
 private:
     std::vector<std::vector<bool>> mapaBlocos;
