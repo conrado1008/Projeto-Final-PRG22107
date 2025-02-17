@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 #include <QGraphicsRectItem>
+#include <QtWidgets>
 
 class game_screen : public QWidget
 {
@@ -20,6 +21,7 @@ private slots:
 private:
     QGraphicsView *view;  // Para exibir a cena do jogo
     QGraphicsScene *scene;  // Cena para todos os itens gráficos
+    QPushButton * restart;
 };
 
 #endif // GAME_SCREEN_H

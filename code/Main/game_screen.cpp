@@ -14,6 +14,9 @@ game_screen::game_screen(QWidget *parent) : QWidget(parent)
     scene = new QGraphicsScene(this);
     scene->setSceneRect(0, 0, 1000, 800); // Definir o tamanho da cena
 
+    restart = new QPushButton("teste");
+    restart->setFixedSize(100,60);
+
     // Criar a peça e adicioná-la à cena
     Peca *pecaE = FabricaDePecas::criarPeca(PECA_E);
     scene->addItem(pecaE);
@@ -46,7 +49,7 @@ game_screen::game_screen(QWidget *parent) : QWidget(parent)
 
     // Create the Level item and add it to the scene
     Level *levelItem = new Level(this);
-    levelItem->setPos(150, 50);  // Adjust position of the Level in the center or based on the layout
+    levelItem->setPos(350, 150);  // Adjust position of the Level in the center or based on the layout
     scene->addItem(levelItem);
 
     // Criar a QGraphicsView para exibir a cena
@@ -57,11 +60,17 @@ game_screen::game_screen(QWidget *parent) : QWidget(parent)
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // Criar layout principal
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->addWidget(view);
+
+    // Lógica para implementar botões durante a fase
+    mainLayout->addStretch();
+    mainLayout->addWidget(restart);
 
     // Create a horizontal layout to position the buttons around the Level
     QHBoxLayout *buttonLayout = new QHBoxLayout();
+
+
 
     // Create a button panel on top of the level
     QGraphicsRectItem *restartButtonPanel = new QGraphicsRectItem(400, 50, 80, 30);
@@ -84,6 +93,8 @@ game_screen::game_screen(QWidget *parent) : QWidget(parent)
 
     // We can add the buttons below the level
     mainLayout->addLayout(buttonLayout);
+
+    this->resize(1000,600);
 }
 
 void game_screen::onRestartClicked()
