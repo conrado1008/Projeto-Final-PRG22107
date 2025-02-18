@@ -24,10 +24,13 @@ public:
 
 protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
 private:
     std::vector<std::vector<bool>> mapaBlocos;
     QColor corPeca;
+    QPointF initial_pos;
+    QPointF mouse_pos;
 };
 
 

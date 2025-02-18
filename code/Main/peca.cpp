@@ -1,6 +1,6 @@
 #include "peca.h"
 #include <QPainter>
-#include <QGraphicsSceneMouseEvent>  // Required for mouse events
+#include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QGraphicsScene>
 
@@ -26,6 +26,26 @@ void Peca::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) {
     }
 }
 
+void Peca::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+    // Capture the position of the Peca and the mouse when the mouse is pressed
+    QPointF pecaPos = this->pos();  // Get the current position of Peca in scene coordinates
+    QPointF mousePos = event->scenePos();  // Get the mouse position in scene coordinates
+
+    this->initial_pos = pecaPos;
+    this->mouse_pos = mousePos;
+
+    // Print the positions for debugging
+    qDebug() << "Peca position (scene):" << this->initial_pos;
+
+    qDebug() << "Mouse position (scene):" << this->mouse_pos;
+
+    // You can store these values if you need them for further use
+    // For example, you could store them in member variables for later reference
+
+    // Optional: Call the base class method for default handling (if necessary)
+    QGraphicsItem::mousePressEvent(event);
+}
+
 void Peca::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
     // Call the base class method for default handling (optional)
     QGraphicsItem::mouseReleaseEvent(event);
@@ -35,17 +55,19 @@ void Peca::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
         QPointF scenePos = mapToScene(event->pos());
 
         // Snap to the grid
-        QPointF firstPixelPosition = scene()->sceneRect().topLeft();
+        QPointF firstPixelPosition = mapToScene(QPointF(0, 0));
 
-        int x = static_cast<int>(scenePos.x() / gridsize) * gridsize - firstPixelPosition.x();
-        int y = static_cast<int>(scenePos.y() / gridsize) * gridsize - firstPixelPosition.y();
+        QPointF delta_pos = scenePos - mouse_pos;
+
+        int x = static_cast<int>((initial_pos.x() + delta_pos.x()) / gridsize) * gridsize;
+        int y = static_cast<int>((initial_pos.y() + delta_pos.y()) / gridsize) * gridsize;
 
         // Update the item position to the snapped position if there's an item being dragged
         if (QGraphicsItem* item = scene()->itemAt(scenePos, QTransform())) {
             item->setPos(x, y);
         }
+        qDebug() << "Delta:" << delta_pos;
     }
-
 
     // Check the event and handle the click
     qDebug() << "Peca clicked at position:" << event->scenePos();
