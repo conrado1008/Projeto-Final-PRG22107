@@ -57,7 +57,15 @@ void Peca::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
         // Snap to the grid
         QPointF firstPixelPosition = mapToScene(QPointF(0, 0));
 
+
         QPointF delta_pos = scenePos - mouse_pos;
+
+        //Tolerance for positioning
+        if (static_cast<int>((delta_pos.x()) < 15) & (static_cast<int>(delta_pos.x()) > -15))
+            delta_pos.setX(0);
+        if (static_cast<int>((delta_pos.y()) < 15) & (static_cast<int>(delta_pos.y()) > -15))
+            delta_pos.setY(0);
+
 
         int x = static_cast<int>((initial_pos.x() + delta_pos.x()) / gridsize) * gridsize;
         int y = static_cast<int>((initial_pos.y() + delta_pos.y()) / gridsize) * gridsize;
