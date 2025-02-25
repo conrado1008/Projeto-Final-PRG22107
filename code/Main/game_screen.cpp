@@ -9,6 +9,11 @@
 game_screen::game_screen(QWidget *parent) : QWidget(parent)
 {
     setWindowTitle("Quebra-cabeça pentaminó");
+    this->setStyleSheet(
+    "QWidget {"
+    "    background: white;"
+    "}"
+    );
 
     // Criar a cena gráfica
     scene = new QGraphicsScene(this);
