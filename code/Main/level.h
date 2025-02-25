@@ -2,23 +2,24 @@
 #define LEVEL_H
 
 #include <QGraphicsItem>
-#include <QVector>
-#include <QGraphicsRectItem>
+#include <QList>
+#include <QGraphicsScene>
 
 class Level : public QGraphicsItem
 {
 public:
-    explicit Level(QObject *parent = nullptr);
+    Level(QObject *parent = nullptr);
     ~Level();
 
-    void setupBoard();  // Set up the grid
-    QRectF boundingRect() const override;  // Define the item's bounding box
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;  // Custom paint function
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    bool is_completed() const; // Método para verificar se o tabuleiro está cheio
 
 private:
-    int width = 10;   // Width of the grid
-    int height = 6;   // Height of the grid
-    QVector<QGraphicsRectItem*> grid;  // List of all grid items (rectangles)
+    void setupBoard(); // Inicializa o tabuleiro
+    QList<QGraphicsRectItem *> grid; // Lista de quadrados do tabuleiro
+    int height = 6;  // Alterado para 6 linhas
+    int width = 10;  // Alterado para 10 colunas
 };
 
 #endif // LEVEL_H

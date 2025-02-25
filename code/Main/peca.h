@@ -17,10 +17,10 @@ enum TipoPeca {
 
 class Peca : public QGraphicsItem {
 public:
-    explicit Peca(const std::vector<std::vector<bool>>& formato, const QColor& cor, QGraphicsItem* parent = nullptr);
-
+    Peca(const std::vector<std::vector<bool>>& formato, const QColor& cor, QGraphicsItem* parent = nullptr);
     QRectF boundingRect() const override;
-    void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    const std::vector<std::vector<bool>>& getMapaBlocos() const; // Getter para mapaBlocos
 
 protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
