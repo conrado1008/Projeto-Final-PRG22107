@@ -17,14 +17,6 @@ Uma das principais funcionalidade da classe level é a verificação de conclus�
 - A funcionalidade foi implementada e verificada por meio da função Qdebug presente no QtCreator, foram criadas peças simples para facilitar a verificação que ocorrem por meio da verificação da ocupação de cada um dos quadrados do tabuleiro.
 
 
-
-
-
-
-
->[!NOTE]
-> Relatar o processo de testes do sistema, especificando quais testes foram realizados e os resultados obtidos.
-
 <div align="center">
 
 [Retroceder](implementacao.md) | [Início](README.md)
