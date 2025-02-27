@@ -18,8 +18,8 @@ public:
 private:
     void setupBoard(); // Inicializa o tabuleiro
     QList<QGraphicsRectItem *> grid; // Lista de quadrados do tabuleiro
-    int height = 6;  // Alterado para 6 linhas
-    int width = 10;  // Alterado para 10 colunas
+    int height;  // Alterado para 6 linhas
+    int width;  // Alterado para 10 colunas
 };
 
 #endif // LEVEL_H

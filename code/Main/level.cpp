@@ -9,6 +9,8 @@
 Level::Level(QObject *parent) : QGraphicsItem(nullptr)
 {
     Q_UNUSED(parent);
+    height = 6;
+    width = 10;
     setupBoard();
 }
 

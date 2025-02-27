@@ -31,6 +31,8 @@ void Peca::mousePressEvent(QGraphicsSceneMouseEvent* event) {
     QPointF pecaPos = this->pos();
     QPointF mousePos = event->scenePos();
 
+    this->setZValue(2);
+
     this->initial_pos = pecaPos;
     this->mouse_pos = mousePos;
 
@@ -41,7 +43,7 @@ void Peca::mousePressEvent(QGraphicsSceneMouseEvent* event) {
 }
 
 void Peca::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
-    QGraphicsItem::mouseReleaseEvent(event);
+    this->setZValue(1);
 
     if (scene()) {
         QPointF scenePos = mapToScene(event->pos());
@@ -70,6 +72,8 @@ void Peca::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
     }
 
     qDebug() << "Peca clicked at position:" << event->scenePos();
+    QGraphicsItem::mouseReleaseEvent(event);
+
 }
 
 const std::vector<std::vector<bool>>& Peca::getMapaBlocos() const {

@@ -11,8 +11,15 @@ enum TipoPeca {
     PECA_E,
     PECA_T,
     PECA_L,
-    PECA_O,
-    PECA_I
+    PECA_I,
+    PECA_1,
+    PECA_2,
+    PECA_3,
+    PECA_4,
+    PECA_5,
+    PECA_6,
+    PECA_7,
+    PECA_8
 };
 
 class Peca : public QGraphicsItem {
